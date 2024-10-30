@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Copy IP Button</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: transparent;
+        }
+
+        .copy-button {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            background: transparent;
+            color: white;
+            padding: 10px 30px;
+            border: 2px solid white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        .copy-button:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <button class="copy-button" id="copy-button" onclick="copyIP()">
+        Get Started
+    </button>
+
+    <script>
+        function copyIP() {
+            const ip = "icemc.pro:5003";
+            navigator.clipboard.writeText(ip).then(() => {
+                const button = document.getElementById('copy-button');
+                button.innerHTML = 'Copied IP'; // Change button text
+            }).catch(err => {
+                console.error("Failed to copy: ", err);
+            });
+        }
+    </script>
+</body>
+</html>
